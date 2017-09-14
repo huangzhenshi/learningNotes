@@ -1,0 +1,20 @@
+进去以后可以看到这个界面
+
+http://eclipsecolorthemes.org/ 这个网站上提供了很多已经配置好的颜色主题，有xml和epf两种格式，你喜欢哪个就下载下来。
+我下载的是.epf文件，下载下来后File->Import->General->Preferences->找到你的.epf文件->Finish。你会发现，Eclipse的编辑环境变成了你要的那种。但是问题也来了，你要如何恢复成原来的样子呢？
+参考了下博文：
+http://my.oschina.net/ljhUncle/blog/42988
+发现如果这样的话，太麻烦了，需要删除整个工程，不靠谱。
+又参考了这个答案：
+http://stackoverflow.com/questions/186118/eclipse-fonts-and-background-color
+（更新）http://stackoverflow.com/questions/5053834/eclipse-ide-for-java-full-dark-theme
+发现有插件可以下载。
+通过方法2站点更新之后Window->Preferences->General->Apperance->Color Theme->default，便可恢复默认的主题。
+ 
+方法2：通过站点更新
+eclipse：Help->Install New Software->Work with:Update Site - http://eclipse-color-theme.github.com/update
+MyEclipse：Help->MyEclipse Confrontation Center->Software->add site->输入name:ColorTheme,URL:http://eclipse-color-theme.github.com/update->点击OK->在Personal Sites下的Eclipse Color Theme下的Eclipse Color Theme右键Add to Profile->等待五分钟安装插件的时间->点击右下角的apply changes
+ 
+安装的过程中发生了错误，不过貌似没事，顺利安装好了，有点奇怪。
+安装后需要重启Eclipse。重启后打开Window->Preferences->General->Apperance->Color Theme(未安装插件前是没有这个选项的)
+界面如下：

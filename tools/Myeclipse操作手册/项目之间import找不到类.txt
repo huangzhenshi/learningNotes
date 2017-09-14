@@ -1,0 +1,2 @@
+The import com.ces.infoplat.component.entity cannot be resolved
+clean一下项目就好了

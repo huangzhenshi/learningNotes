@@ -1,0 +1,12 @@
+1.设置背景色 为深色，文字为白色。
+Tools -Prefrence - Colors-Font 
+文本为白色，背景色自定义设置： Hue 139、123、33
+
+2.设置不自动保存bak文件
+Tools -Prefrence - File- 不要选择保存副本
+
+3.设置修改时不锁定文件
+Tools -Prefrence - File- 不锁定文件
+
+4.设置行号栏的颜色
+Tools -config User Tools-color LineNumber
