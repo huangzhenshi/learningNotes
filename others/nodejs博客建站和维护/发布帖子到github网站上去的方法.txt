@@ -1,0 +1,15 @@
+1.先用makedown 写好一篇帖子
+2.在预览没问题之后，添加上 文章的标题信息
+---
+title: 排序算法
+date: 2017-10-28 16:21:20
+tags:
+---
+
+3.把MD文件复制到 C:\huangzs\blog\nodejs_hexo_githubBlog_SourceCode-master\source\_posts 路径下面
+
+4.在 C:\huangzs\blog\nodejs_hexo_githubBlog_SourceCode-master 下面 进入 gitbash 
+	-->  hexo g 生产静态文件  
+	-->  hexo s 部署到本地环境     http://localhost:4000/ 查看效果
+	-->  hexo d 发布到huangzhenshi.github.io  网站上面，需要输入用户名和密码，输入密码后 会停顿一下
+
