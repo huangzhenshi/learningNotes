@@ -1,0 +1,56 @@
+设计思路： 每隔30秒，读取一下 cpu 和内存的使用情况数据，关键数据输出到excel 表格当中去，非关键数据 追加到文本当中。
+
+核心数据： cpu 空闲， 内存free 和 交换器 cache
+
+
+-- 获取到 第一行时间  第三行CPU  第四行  第五行 内存的使用情况
+
+日期： date +"%Y-%m-%d %H:%M:%S"
+
+result=top -n 1 | head -n 5 | sed '2d' 
+
+时间：
+col_time=`date +"%Y-%m-%d %H:%M:%S"`
+
+cpu空闲：
+cpu_id=`top -n 1 | head -n 5 | sed '2d' | sed -n '2p' | awk '{print $8}'`
+
+内存空闲：
+memery_id=`top -n 1 | head -n 5 | sed '2d' | sed -n '3p' | awk '{print $8}'`
+
+内存缓冲:
+buffer_id=`top -n 1 | head -n 5 | sed '2d' | sed -n '3p' | awk '{print $10}'`
+
+交换区缓存内存:
+swap_id=`top -n 1 | head -n 5 | sed '2d' | sed -n '4p' | awk '{print $9}'`
+
+
+
+
+Centos 生产有用的。
+cpu_id=`top -n 1 | head -n 5 | sed '2d' | sed -n '2p' | awk '{print $5}'`
+memery_id=`top -n 1 | head -n 5 | sed '2d' | sed -n '3p' | awk '{print $7}'`
+buffer_id=`top -n 1 | head -n 5 | sed '2d' | sed -n '3p' | awk '{print $9}'`
+swap_id=`top -n 1 | head -n 5 | sed '2d' | sed -n '4p' | awk '{print $8}'`
+
+
+
+
+# 每30秒监控一次cpu的使用情况，并且按照日期的格式追加到文本log日志当中。
+sar -u 30 >>/usr/developer/backup_huang/cpu_log_`date +"%Y-%m-%d"`.txt
+sar -r 30 >>/usr/developer/backup_huang/memory_log_`date +"%Y-%m-%d"`.txt
+
+nohup ./xxx.sh &
+
+
+
+#!/bin/bash
+
+# 每30秒监控一次cpu的使用情况，并且按照日期的格式追加到文本log日志当中。
+sar -u 5 1 | sed -n '4p'>>/usr/developer/backup_huang/cpu_log_`date +"%Y-%m-%d"`.txt;
+sar -r 5 1 >>/usr/developer/backup_huang/memory_log_`date +"%Y-%m-%d"`.txt;
+
+
+
+*/1 * * * * /usr/developer/backup_huang/status_collect.sh
+
